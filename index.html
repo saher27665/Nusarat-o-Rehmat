@@ -44,7 +44,61 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 .side-item .tooltip{position:absolute;left:calc(100% + 14px);top:50%;transform:translateY(-50%);background:#0F1F3D;color:#FAF8F2;padding:9px 14px;border-radius:8px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;opacity:0;pointer-events:none;transition:.3s;font-family:'JetBrains Mono',monospace;box-shadow:0 10px 25px rgba(15,31,61,.25);border:1px solid rgba(201,169,97,.25);}
 .side-item:hover .tooltip{opacity:1;left:calc(100% + 18px)}
 .side-cart-badge{position:absolute;top:6px;right:6px;background:#C9A961;color:#0F1F3D;font-size:.55rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;border:2px solid #FAF8F2;}
-.side-footer{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:18px;border-top:1px solid rgba(15,31,61,.08);width:56%;align-items:center;}
+
+/* ============ MOBILE NAV (only mobile) ============ */
+.mobile-nav{
+  display:none;
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:linear-gradient(180deg,#0B1B36,#071326);
+  border-top:1px solid rgba(205,170,85,.35);
+  z-index:1500;
+  padding:6px 4px;
+  box-shadow:0 -6px 24px rgba(0,0,0,.25);
+}
+.mobile-nav .mn-inner{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  gap:2px;
+}
+.mobile-nav .mn-item{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:8px 4px;
+  color:rgba(252,250,245,.65);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.5rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border-radius:10px;
+  transition:.3s;
+  position:relative;
+  cursor:pointer;
+}
+.mobile-nav .mn-item i{font-size:1rem;transition:.3s}
+.mobile-nav .mn-item.active{
+  color:var(--gold-2);
+  background:rgba(205,170,85,.12);
+}
+.mobile-nav .mn-item.active i{color:var(--gold-2)}
+.mobile-nav .mn-item .mn-badge{
+  position:absolute;
+  top:4px;right:calc(50% - 18px);
+  background:var(--gold);
+  color:var(--ink);
+  font-size:.5rem;
+  font-weight:700;
+  min-width:14px;height:14px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 3px;
+  font-family:'JetBrains Mono',monospace;
+}
 
 /* ============ TOP STRIP ============ */
 .top-strip{
@@ -533,29 +587,30 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .checkout-wrap{grid-template-columns:1fr 1fr}
 }
 
-/* ===== MOBILE FIXES ===== */
+/* ===== MOBILE: hide sidebar, show mobile nav ===== */
 @media(max-width:900px){
-  /* Sidebar: chhota kiya */
-  .sidebar{width:48px;padding:10px 0}
-  .main{margin-left:48px}
-  .side-rail{gap:5px}
-  .side-item{width:34px;height:34px;font-size:.75rem;border-radius:9px}
-  .side-item .tooltip{display:none}
-  .side-cart-badge{width:12px;height:12px;font-size:.4rem;top:1px;right:1px;border-width:1.5px}
-  .sidebar::before{background-size:90px auto}
-
-  /* Top Strip: chhota kiya */
-  .top-strip{padding:6px 10px;flex-direction:row;gap:6px;align-items:center;justify-content:space-between;min-height:auto;flex-wrap:nowrap}
-  .top-strip .left-brand{gap:7px;flex:1;min-width:0}
-  .top-strip .left-brand img{height:28px;width:28px}
-  .top-strip .left-brand .brand-name{font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .top-strip .left-brand .brand-sub{font-size:.45rem;letter-spacing:.12em;white-space:nowrap}
-  .top-strip .right{gap:0;flex-shrink:0}
-  .top-strip .right a{display:none}
-  .top-strip .live-clock{font-size:.5rem;color:var(--gold)}
+  /* HIDE SIDEBAR */
+  .sidebar{display:none !important}
+  .side-panel{display:none !important}
+  
+  /* SHOW MOBILE NAV */
+  .mobile-nav{display:block}
+  
+  /* Main takes full width */
+  .main{margin-left:0;padding-bottom:70px}
+  
+  /* Top strip full width */
+  .top-strip{padding:8px 12px;flex-direction:column;gap:6px;align-items:center;text-align:center;min-height:auto}
+  .top-strip .left-brand{justify-content:center;gap:8px}
+  .top-strip .left-brand img{height:36px;width:36px}
+  .top-strip .left-brand .brand-name{font-size:1.15rem}
+  .top-strip .left-brand .brand-sub{font-size:.5rem}
+  .top-strip .right{justify-content:center;gap:10px}
+  .top-strip .right a:not(:first-child){display:none}
+  .top-strip .live-clock{display:none}
   .top-strip::before{background-size:120px auto}
 
-  /* Hero: text sizes adjust */
+  /* Hero */
   .hero{min-height:auto;padding:28px 16px}
   .hero-inner{grid-template-columns:1fr;gap:28px;text-align:center}
   .hero-left .eyebrow{justify-content:center;font-size:.55rem;letter-spacing:.22em;margin-bottom:16px;gap:8px}
@@ -724,7 +779,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .checkout-summary .place-order-btn{padding:15px;font-size:.65rem}
 
   /* Footer */
-  .footer{padding:40px 16px 18px}
+  .footer{padding:40px 16px 80px}
   .footer::before{font-size:8rem;bottom:-30px;right:-10px}
   .footer-top{grid-template-columns:1fr;gap:24px;padding-bottom:28px}
   .footer-brand h3{font-size:1.3rem}
@@ -733,27 +788,26 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .footer-col a,.footer-col p{font-size:.75rem;padding:3px 0}
   .footer-bottom{font-size:.5rem;padding-top:18px;flex-direction:column;text-align:center;gap:6px}
 
-  /* Floating buttons */
-  .wa-btn{width:44px;height:44px;font-size:1.2rem;bottom:16px;right:16px}
-  .music-btn{width:44px;height:44px;font-size:.95rem;bottom:70px;right:16px}
-  .back-top{width:36px;height:36px;font-size:.75rem;bottom:120px;right:16px}
+  /* Floating buttons - upar shift karo mobile nav se */
+  .wa-btn{width:44px;height:44px;font-size:1.2rem;bottom:76px;right:14px}
+  .music-btn{width:44px;height:44px;font-size:.95rem;bottom:130px;right:14px}
+  .back-top{width:36px;height:36px;font-size:.75rem;bottom:184px;right:14px}
 }
 
 @media(max-width:560px){
   .hero-left h1{font-size:1.3rem}
   .hero-left p{font-size:.78rem}
   .hero-badge{width:130px;height:130px}
-  .top-strip .left-brand .brand-name{font-size:.82rem}
-  .top-strip .left-brand img{height:24px;width:24px}
+  .top-strip .left-brand .brand-name{font-size:1rem}
+  .top-strip .left-brand img{height:32px;width:32px}
   .section-head h2{font-size:1.3rem}
   .cat-asym{grid-template-columns:1fr}
   .cat-card-asym.wide,.cat-card-asym.norm,.cat-card-asym.tall,.cat-card-asym.third,.cat-card-asym.half{grid-column:span 1}
   .prod-grid{grid-template-columns:1fr 1fr}
   .gallery-masonry{grid-template-columns:1fr}
   .stat-col .sc-val{font-size:1.6rem}
-  .side-item{width:30px;height:30px;font-size:.7rem}
-  .sidebar{width:42px}
-  .main{margin-left:42px}
+  .mobile-nav .mn-item{font-size:.45rem;padding:6px 2px}
+  .mobile-nav .mn-item i{font-size:.9rem}
 }
 </style>
 </head>
@@ -761,7 +815,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- SIDEBAR -->
+<!-- SIDEBAR (Hidden on mobile) -->
 <aside class="sidebar" id="sidebar">
   <nav class="side-rail">
     <a class="side-item active" data-page="home" onclick="go('home')"><i class="fas fa-home"></i><span class="tooltip">Home</span></a>
@@ -780,6 +834,17 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   <a class="panel-btn" href="mailto:zs234870@gmail.com"><i class="fas fa-envelope"></i><span class="panel-label">Email</span></a>
   <a class="panel-btn" onclick="go('contact')"><i class="fas fa-file-invoice"></i><span class="panel-label">Get Quote</span></a>
 </div>
+
+<!-- MOBILE NAV (only shows on mobile) -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mn-inner">
+    <a class="mn-item active" data-page="home" onclick="go('home')"><i class="fas fa-home"></i><span>Home</span></a>
+    <a class="mn-item" data-page="products" onclick="go('products')"><i class="fas fa-tshirt"></i><span>Shop</span></a>
+    <a class="mn-item" data-page="gallery" onclick="go('gallery')"><i class="fas fa-images"></i><span>Gallery</span></a>
+    <a class="mn-item" data-page="contact" onclick="go('contact')"><i class="fas fa-paper-plane"></i><span>Contact</span></a>
+    <a class="mn-item" data-page="cart" onclick="go('cart')"><i class="fas fa-shopping-bag"></i><span>Cart</span><span class="mn-badge" id="mobileCartBadge">0</span></a>
+  </div>
+</nav>
 
 <main class="main">
 
@@ -1379,6 +1444,9 @@ function go(page){
   document.querySelectorAll('.side-item').forEach(a=>{
     a.classList.toggle('active', a.dataset.page===page);
   });
+  document.querySelectorAll('.mobile-nav .mn-item').forEach(a=>{
+    a.classList.toggle('active', a.dataset.page===page);
+  });
   window.scrollTo({top:0,behavior:'smooth'});
   if(page==='cart') renderCart();
   if(page==='checkout') renderCheckout();
@@ -1542,6 +1610,8 @@ function updateCartBadge(){
   const count = cart.reduce((s,i)=>s+i.qty,0);
   const el = document.getElementById('cartBadge');
   if(el) el.textContent = count;
+  const el2 = document.getElementById('mobileCartBadge');
+  if(el2) el2.textContent = count;
 }
 function addToCart(id, qty=1){
   const p = PRODUCTS.find(x=>x.id===id);
