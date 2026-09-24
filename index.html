@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
+/* [CSS SAME AS BEFORE — NO CHANGES NEEDED] */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --ink:#0B1B36;--ink-2:#122A4A;--ink-3:#071326;
@@ -662,7 +663,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 <div class="side-panel" id="sidePanel">
   <a class="panel-btn" href="https://wa.me/923333939888" target="_blank"><i class="fab fa-whatsapp"></i><span class="panel-label">Chat Now</span></a>
   <a class="panel-btn" href="tel:+923333939888"><i class="fas fa-phone"></i><span class="panel-label">Call Us</span></a>
-  <a class="panel-btn" href="mailto:zs234870@gmail.com"><i class="fas fa-envelope"></i><span class="panel-label">Email</span></a>
+  <a class="panel-btn" href="mailto:stitch@nusratorehmat.com"><i class="fas fa-envelope"></i><span class="panel-label">Email</span></a>
   <a class="panel-btn" onclick="go('contact')"><i class="fas fa-file-invoice"></i><span class="panel-label">Get Quote</span></a>
 </div>
 
@@ -689,7 +690,8 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   <div class="right">
     <span class="live-clock" id="liveClock">--:--:--</span>
     <a href="https://wa.me/923333939888">+92 333 3939 888</a>
-    <a href="mailto:zs234870@gmail.com">zs234870@gmail.com</a>
+    <a href="https://wa.me/923349855976">0334 9855976</a>
+    <a href="mailto:stitch@nusratorehmat.com">stitch@nusratorehmat.com</a>
   </div>
 </div>
 
@@ -993,13 +995,16 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
       <h2>Let's make something <em>great.</em></h2>
       <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-user-tie"></i></div><div><div class="ci-label">Proprietor</div><div class="ci-value">Zahid Salman</div></div></div>
       <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="ci-label">Address</div><div class="ci-value">Chak Qazi, Sialkot, Pakistan</div></div></div>
-      <div class="contact-info-block"><div class="ci-icon"><i class="fab fa-whatsapp"></i></div><div><div class="ci-label">WhatsApp</div><div class="ci-value"><a href="https://wa.me/923333939888">+92 333 3939 888</a></div></div></div>
-      <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:zs234870@gmail.com">zs234870@gmail.com</a></div></div></div>
+      <div class="contact-info-block"><div class="ci-icon"><i class="fab fa-whatsapp"></i></div><div><div class="ci-label">Primary Mobile</div><div class="ci-value"><a href="https://wa.me/923333939888">+92 333 3939 888</a></div></div></div>
+      <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-mobile-alt"></i></div><div><div class="ci-label">Secondary Mobile</div><div class="ci-value"><a href="https://wa.me/923349855976">0334 9855976</a></div></div></div>
+      <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:stitch@nusratorehmat.com">stitch@nusratorehmat.com</a></div></div></div>
     </div>
     <div class="contact-form-side">
       <div class="form-title">Send us a message</div>
       <div class="form-subtitle">We reply within 24 hours</div>
-      <form onsubmit="submitContact(event)">
+      <form id="contactForm" onsubmit="submitContactWeb3(event)">
+        <input type="hidden" name="access_key" value="7741bc99-d503-40c5-993e-142cdab50f2e">
+        <input type="hidden" name="from_name" value="Nusrat O Rehmat Website">
         <div class="form-group"><label>Your Name <span class="req">*</span></label><input type="text" name="name" required placeholder="Zahid Salman"></div>
         <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" name="email" required placeholder="you@example.com"></div>
         <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+92 300 0000000"></div>
@@ -1136,7 +1141,8 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
         <h4>Contact</h4>
         <p>Zahid Salman — Proprietor</p>
         <a href="https://wa.me/923333939888">+92 333 3939 888</a>
-        <a href="mailto:zs234870@gmail.com">zs234870@gmail.com</a>
+        <a href="https://wa.me/923349855976">0334 9855976</a>
+        <a href="mailto:stitch@nusratorehmat.com">stitch@nusratorehmat.com</a>
         <p>Chak Qazi, Sialkot, Pakistan</p>
       </div>
     </div>
@@ -1161,15 +1167,14 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 <div class="toast" id="toast"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  emailjs.init({ publicKey: "d0piOzrwIHQaXiYch" });
-  const EMAILJS_SERVICE = "service_mqjx53o";
-  const EMAILJS_TEMPLATE = "template_lgyz9dj";
-  const ADMIN_EMAIL = "zs234870@gmail.com";
-</script>
+/* ============================================================
+   WEB3FORMS CONFIG
+   ============================================================ */
+const WEB3FORMS_KEY = "7741bc99-d503-40c5-993e-142cdab50f2e";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const ADMIN_EMAIL = "stitch@nusratorehmat.com";
 
-<script>
 /* ============================================================
    SECTION 1: UTILITY FUNCTIONS
    ============================================================ */
@@ -1187,40 +1192,39 @@ window.addEventListener('scroll', ()=>{
   if(sp) sp.classList.toggle('show', window.scrollY > 400);
 });
 
-/* Price format: Rs + commas */
 function formatPrice(n){
   return 'Rs ' + Math.round(Number(n) || 0).toLocaleString('en-PK');
 }
 
 /* ============================================================
-   SECTION 2: DEFAULT DATA (agar products.json na mile)
+   SECTION 2: DEFAULT DATA
    ============================================================ */
 const DEFAULT_PRODUCTS = [
-  {id:1, name:'Custom Team Jersey', cat:'Team Uniforms', price:7299, img:'images/P01.png', desc:'Custom-designed team jersey with your logo, colors, and player names.', available:true},
-  {id:2, name:'Sublimated Sports Jersey', cat:'Team Uniforms', price:8399, img:'images/P02.png', desc:'Full sublimation printed jersey with unlimited color options.', available:true},
-  {id:3, name:'Pro Training Jersey', cat:'Team Uniforms', price:6199, img:'images/P03.png', desc:'Lightweight training jersey for practice sessions.', available:true},
-  {id:4, name:'Cricket Team Jersey', cat:'Team Uniforms', price:7899, img:'images/P04.png', desc:'Cricket team jersey with collar and moisture-wicking fabric.', available:true},
-  {id:5, name:'Athletic Performance Tee', cat:'Athletic Wear', price:5299, img:'images/P05.png', desc:'Breathable athletic t-shirt for training and casual wear.', available:true},
-  {id:6, name:'Running Shorts Pro', cat:'Athletic Wear', price:4499, img:'images/P06.png', desc:'Lightweight running shorts with side pockets.', available:true},
-  {id:7, name:'Sports Hoodie', cat:'Athletic Wear', price:9799, img:'images/P07.png', desc:'Premium sports hoodie with moisture-wicking technology.', available:true},
-  {id:8, name:'Athletic Tank Top', cat:'Athletic Wear', price:4799, img:'images/P08.png', desc:'Breathable athletic tank top.', available:true},
-  {id:9, name:'Gym Compression Top', cat:'Gym Apparel', price:7899, img:'images/P09.png', desc:'High-performance compression top.', available:true},
-  {id:10, name:'Gym Training Shorts', cat:'Gym Apparel', price:5599, img:'images/P10.png', desc:'Durable training shorts with stretch fabric.', available:true},
-  {id:11, name:'Gym Stringer Vest', cat:'Gym Apparel', price:4999, img:'images/P11.png', desc:'Classic gym stringer vest.', available:true},
-  {id:12, name:'Tracksuit Pro', cat:'Tracksuits', price:11799, img:'images/P12.png', desc:'Comfortable tracksuit for training and casual wear.', available:true},
-  {id:13, name:'Warm-Up Tracksuit', cat:'Tracksuits', price:10699, img:'images/P13.png', desc:'Lightweight warm-up tracksuit.', available:true},
-  {id:14, name:'Sports Windbreaker', cat:'Tracksuits', price:8999, img:'images/P14.png', desc:'Lightweight windbreaker jacket.', available:true},
-  {id:15, name:'Cricket Whites Set', cat:'Cricket Wear', price:12699, img:'images/P15.png', desc:'Complete cricket whites set.', available:true},
-  {id:16, name:'Cricket Practice Kit', cat:'Cricket Wear', price:9799, img:'images/P16.png', desc:'Complete practice kit.', available:true},
-  {id:17, name:'Football Team Kit', cat:'Football Wear', price:9199, img:'images/P17.png', desc:'Complete football kit.', available:true},
-  {id:18, name:'Goalkeeper Jersey', cat:'Football Wear', price:9799, img:'images/P18.png', desc:'Padded goalkeeper jersey.', available:true},
-  {id:19, name:'Football Training Bib', cat:'Football Wear', price:3399, img:'images/P19.png', desc:'Lightweight training bib.', available:true},
-  {id:20, name:'Football Away Kit', cat:'Football Wear', price:8699, img:'images/P20.png', desc:'Away kit with contrasting colors.', available:true},
-  {id:21, name:'Motorbike Suit', cat:'Motorbike Wear', price:55999, img:'images/P21.png', desc:'Premium motorbike racing suit with jacket and pants, designed for maximum protection, comfort and style.', available:true}
-];
+  {"id":1,"name":"Custom Team Jersey","cat":"Team Uniforms","price":1800,"img":"images/P01.png","desc":"Custom-designed team jersey with your logo, colors, and player names.","available":true},
+  {"id":2,"name":"Sublimated Sports Jersey","cat":"Team Uniforms","price":1900,"img":"images/P02.png","desc":"Full sublimation printed jersey with unlimited color options.","available":true},
+  {"id":3,"name":"Pro Training Jersey","cat":"Team Uniforms","price":1850,"img":"images/P03.png","desc":"Lightweight training jersey for practice sessions.","available":true},
+  {"id":4,"name":"Cricket Team Jersey","cat":"Team Uniforms","price":1950,"img":"images/P04.png","desc":"Cricket team jersey with collar and moisture-wicking fabric.","available":true},
+  {"id":5,"name":"Athletic Performance Tee","cat":"Athletic Wear","price":1800,"img":"images/P05.png","desc":"Breathable athletic t-shirt for training and casual wear.","available":true},
+  {"id":6,"name":"Running Shorts Pro","cat":"Athletic Wear","price":4499,"img":"images/P06.png","desc":"Lightweight running shorts with side pockets.","available":true},
+  {"id":7,"name":"Sports Hoodie","cat":"Athletic Wear","price":9799,"img":"images/P07.png","desc":"Premium sports hoodie with moisture-wicking technology.","available":true},
+  {"id":8,"name":"Athletic Tank Top","cat":"Athletic Wear","price":4799,"img":"images/P08.png","desc":"Breathable athletic tank top.","available":true},
+  {"id":9,"name":"Gym Compression Top","cat":"Gym Apparel","price":7899,"img":"images/P09.png","desc":"High-performance compression top.","available":true},
+  {"id":10,"name":"Gym Training Shorts","cat":"Gym Apparel","price":5599,"img":"images/P10.png","desc":"Durable training shorts with stretch fabric.","available":true},
+  {"id":11,"name":"Gym Stringer Vest","cat":"Gym Apparel","price":4999,"img":"images/P11.png","desc":"Classic gym stringer vest.","available":true},
+  {"id":12,"name":"Tracksuit Pro","cat":"Tracksuits","price":11799,"img":"images/P12.png","desc":"Comfortable tracksuit for training and casual wear.","available":true},
+  {"id":13,"name":"Warm-Up Tracksuit","cat":"Tracksuits","price":10699,"img":"images/P13.png","desc":"Lightweight warm-up tracksuit.","available":true},
+  {"id":14,"name":"Sports Windbreaker","cat":"Tracksuits","price":8999,"img":"images/P14.png","desc":"Lightweight windbreaker jacket.","available":true},
+  {"id":15,"name":"Cricket Whites Set","cat":"Cricket Wear","price":12699,"img":"images/P15.png","desc":"Complete cricket whites set.","available":true},
+  {"id":16,"name":"Cricket Practice Kit","cat":"Cricket Wear","price":9799,"img":"images/P16.png","desc":"Complete practice kit.","available":true},
+  {"id":17,"name":"Football Team Kit","cat":"Football Wear","price":9199,"img":"images/P17.png","desc":"Complete football kit.","available":true},
+  {"id":18,"name":"Goalkeeper Jersey","cat":"Football Wear","price":9799,"img":"images/P18.png","desc":"Padded goalkeeper jersey.","available":true},
+  {"id":19,"name":"Football Training Bib","cat":"Football Wear","price":3399,"img":"images/P19.png","desc":"Lightweight training bib.","available":true},
+  {"id":20,"name":"Football Away Kit","cat":"Football Wear","price":8699,"img":"images/P20.png","desc":"Away kit with contrasting colors.","available":true},
+  {"id":21,"name":"Motorbike Suit","cat":"Motorbike Wear","price":55999,"img":"images/P21.png","desc":"Premium motorbike racing suit with jacket and pants, designed for maximum protection, comfort and style.","available":true}
+]
 
 /* ============================================================
-   SECTION 3: CATEGORIES (Explore our range cards)
+   SECTION 3: CATEGORIES
    ============================================================ */
 const CATEGORIES = [
   {key:'Team Uniforms',  name:'Team Uniforms',   sub:'Custom jerseys with your logo', img:'images/uniforms.jfif',  tag:'Popular', size:'half'},
@@ -1243,7 +1247,6 @@ let activeFilter = 'all';
    SECTION 5: DATA LOADING
    ============================================================ */
 async function loadProducts(){
-  // 1. Try products.json first
   try{
     const res = await fetch('products.json?v=' + Date.now());
     if(res.ok){
@@ -1257,7 +1260,6 @@ async function loadProducts(){
   }catch(e){
     console.warn('⚠️ products.json not found, using fallback:', e.message);
   }
-  // 2. Try localStorage
   try{
     const saved = JSON.parse(localStorage.getItem('nusratProducts') || 'null');
     if(Array.isArray(saved) && saved.length > 0){
@@ -1266,7 +1268,6 @@ async function loadProducts(){
       return;
     }
   }catch(e){}
-  // 3. Fallback to DEFAULT_PRODUCTS
   PRODUCTS = [...DEFAULT_PRODUCTS];
   console.log('✅ Using DEFAULT_PRODUCTS:', PRODUCTS.length);
 }
@@ -1621,11 +1622,17 @@ function renderCheckout(){
   document.getElementById('coTotal').textContent = formatPrice(total);
 }
 
-function placeOrder(e){
+async function placeOrder(e){
   e.preventDefault();
   const cart = getCart();
   if(cart.length===0){ showToast('Cart is empty', true); return; }
+
   const form = e.target;
+  const btn = document.querySelector('.place-order-btn');
+  const orig = btn.innerHTML;
+  btn.innerHTML = 'Placing Order...';
+  btn.disabled = true;
+
   const data = {
     fullname: form.fullname.value,
     email: form.email.value,
@@ -1644,42 +1651,97 @@ function placeOrder(e){
   const tax = sub * 0.1;
   const total = sub + shipping + tax;
   const orderId = 'NOR-' + Date.now().toString().slice(-6);
-  const msg = `New Order from Website%0A%0AOrder ID: ${orderId}%0A%0ACustomer Details:%0AName: ${data.fullname}%0AEmail: ${data.email}%0APhone: ${data.phone}%0ACompany: ${data.company || 'N/A'}%0A%0AShipping Address:%0A${data.address}%0A${data.city}, ${data.postal}%0A${data.country}%0A%0APayment Method: ${data.payment}%0ANotes: ${data.notes || 'N/A'}%0A%0AItems:%0A${encodeURIComponent(items)}%0A%0ASubtotal: ${formatPrice(sub)}%0AShipping: ${formatPrice(shipping)}%0ATax: ${formatPrice(tax)}%0ATotal: ${formatPrice(total)}%0A%0APlease confirm my order.`;
-  const emailData = {
-    to_email: ADMIN_EMAIL,
-    name: data.fullname,
-    email: data.email,
-    phone: data.phone,
-    subject: `New Order ${orderId}`,
-    message: `Order ID: ${orderId}\n\nCustomer: ${data.fullname}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company || 'N/A'}\n\nAddress:\n${data.address}\n${data.city}, ${data.postal}\n${data.country}\n\nPayment: ${data.payment}\nNotes: ${data.notes || 'N/A'}\n\nItems:\n${items}\n\nSubtotal: ${formatPrice(sub)}\nShipping: ${formatPrice(shipping)}\nTax: ${formatPrice(tax)}\nTotal: ${formatPrice(total)}`
-  };
-  emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, emailData).catch(err=>console.log('Email error:', err));
-  window.open(`https://wa.me/923333939888?text=${msg}`, '_blank');
-  saveCart([]);
-  document.getElementById('orderNumber').textContent = orderId;
-  go('success');
+
+  // Build order details message
+  const orderDetails =
+    `Order ID: ${orderId}\n\n` +
+    `Customer: ${data.fullname}\n` +
+    `Email: ${data.email}\n` +
+    `Phone: ${data.phone}\n` +
+    `Company: ${data.company || 'N/A'}\n\n` +
+    `Address:\n${data.address}\n${data.city}, ${data.postal}\n${data.country}\n\n` +
+    `Payment: ${data.payment}\n` +
+    `Notes: ${data.notes || 'N/A'}\n\n` +
+    `Items:\n${items}\n\n` +
+    `Subtotal: ${formatPrice(sub)}\n` +
+    `Shipping: ${formatPrice(shipping)}\n` +
+    `Tax: ${formatPrice(tax)}\n` +
+    `Total: ${formatPrice(total)}`;
+
+  // Send via Web3Forms
+  try {
+    const formData = new FormData();
+    formData.append('access_key', WEB3FORMS_KEY);
+    formData.append('subject', `New Order ${orderId} — ${data.fullname}`);
+    formData.append('from_name', 'Nusrat O Rehmat — Website Order');
+    formData.append('name', data.fullname);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    formData.append('message', orderDetails);
+
+    const res = await fetch(WEB3FORMS_ENDPOINT, {
+      method: 'POST',
+      body: formData
+    });
+    const result = await res.json();
+    console.log('Web3Forms order response:', result);
+
+    if (result.success) {
+      saveCart([]);
+      document.getElementById('orderNumber').textContent = orderId;
+      go('success');
+    } else {
+      console.error('Order send failed:', result);
+      showToast('Order failed. Please try WhatsApp.', true);
+      btn.innerHTML = orig;
+      btn.disabled = false;
+    }
+  } catch (err) {
+    console.error('Network error:', err);
+    showToast('Network error. Please try WhatsApp.', true);
+    btn.innerHTML = orig;
+    btn.disabled = false;
+  }
 }
 
 /* ============================================================
-   SECTION 13: CONTACT FORM
+   SECTION 13: CONTACT FORM — WEB3FORMS
    ============================================================ */
-function submitContact(e){
+async function submitContactWeb3(e){
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
   const orig = btn.innerHTML;
   btn.innerHTML = 'Sending...';
   btn.disabled = true;
-  const data = {
-    to_email: ADMIN_EMAIL,
-    name: e.target.querySelector('[name="name"]').value,
-    email: e.target.querySelector('[name="email"]').value,
-    phone: e.target.querySelector('[name="phone"]').value,
-    subject: e.target.querySelector('[name="subject"]').value || 'New Contact Message',
-    message: e.target.querySelector('[name="message"]').value
-  };
-  emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, data)
-    .then(()=>{ showToast('Message sent!'); e.target.reset(); btn.innerHTML = orig; btn.disabled = false; })
-    .catch(err=>{ console.error(err); showToast('Failed to send', true); btn.innerHTML = orig; btn.disabled = false; });
+
+  try {
+    const formData = new FormData(form);
+    const userSubject = formData.get('subject') || 'New Contact Message';
+    formData.set('subject', `Website Contact: ${userSubject}`);
+
+    const res = await fetch(WEB3FORMS_ENDPOINT, {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await res.json();
+    console.log('Web3Forms contact response:', result);
+
+    if (result.success) {
+      showToast('Message sent! We\'ll reply within 24 hours.');
+      form.reset();
+    } else {
+      console.error('Web3Forms error:', result);
+      showToast('Failed to send. Please try WhatsApp.', true);
+    }
+  } catch (err) {
+    console.error('Network error:', err);
+    showToast('Network error. Please try WhatsApp.', true);
+  } finally {
+    btn.innerHTML = orig;
+    btn.disabled = false;
+  }
   return false;
 }
 
