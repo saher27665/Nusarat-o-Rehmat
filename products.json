@@ -19,5 +19,5 @@
   {"id":18,"name":"Goalkeeper Jersey","cat":"Football Wear","price":9799,"img":"images/P18.png","desc":"Padded goalkeeper jersey.","available":true},
   {"id":19,"name":"Football Training Bib","cat":"Football Wear","price":3399,"img":"images/P19.png","desc":"Lightweight training bib.","available":true},
   {"id":20,"name":"Football Away Kit","cat":"Football Wear","price":8699,"img":"images/P20.png","desc":"Away kit with contrasting colors.","available":true},
-  {"id":21,"name":"Motorbike Suit","cat":"Motorbike Wear","price":55999,"img":"images/images/P21.png","desc":"Premium motorbike racing suit with jacket and pants, designed for maximum protection, comfort and style.","available":true}
+  {"id":21,"name":"Motorbike Suit","cat":"Motorbike Wear","price":55999,"img":"images/P21.png","desc":"Premium motorbike racing suit with jacket and pants, designed for maximum protection, comfort and style.","available":true}
 ]
