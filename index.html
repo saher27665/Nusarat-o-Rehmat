@@ -940,17 +940,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
       <p>Real shots from our workshop and past orders. Get inspired for your next custom piece.</p>
     </div>
   </div>
-  <div class="section">
-    <div class="gallery-tabs" id="galleryTabs">
-      <button class="active" onclick="filterGallery(this,'all')">All</button>
-      <button onclick="filterGallery(this,'Team Uniforms')">Team Uniforms</button>
-      <button onclick="filterGallery(this,'Athletic Wear')">Athletic Wear</button>
-      <button onclick="filterGallery(this,'Gym Apparel')">Gym Apparel</button>
-      <button onclick="filterGallery(this,'Tracksuits')">Tracksuits</button>
-      <button onclick="filterGallery(this,'Cricket Wear')">Cricket Wear</button>
-      <button onclick="filterGallery(this,'Football Wear')">Football Wear</button>
-      <button onclick="filterGallery(this,'Motorbike Wear')">Motorbike Wear</button>
-    </div>
+    <div class="section">
     <div class="gallery-masonry" id="galleryMasonry"></div>
   </div>
 </div>
@@ -1865,7 +1855,7 @@ async function initializeApp(){
   buildGalleryFromProducts();
   renderHome();
   renderProducts();
-  renderGallery();
+  renderGallery(all);
   updateCartBadge();
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   initMusic();
