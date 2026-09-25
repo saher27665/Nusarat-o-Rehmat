@@ -1,10 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-    <url>
-        <loc>https://nusratorehmat.com/</loc>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
+  <!-- ==================== HOME PAGE ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.nusratorehmat.com/logo.png</image:loc>
+      <image:title>Nusrat O Rehmat Traders — Custom Sportswear</image:title>
+      <image:caption>Premium custom sportswear from Sialkot, Pakistan</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ==================== ABOUT PAGE ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#about</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ==================== PRODUCTS PAGE ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#products</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- ==================== SERVICES PAGE ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#services</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ==================== GALLERY PAGE ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#gallery</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ==================== CONTACT PAGE ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#contact</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ==================== CART PAGE ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#cart</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ==================== LETTERHEAD (DOWNLOAD) ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/letterhead.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- ==================== VISITING CARD (DOWNLOAD) ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/visiting-card.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- ==================== PRODUCT CATEGORY — TEAM UNIFORMS ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#Team%20Uniforms</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ==================== PRODUCT CATEGORY — ATHLETIC WEAR ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#Athletic%20Wear</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ==================== PRODUCT CATEGORY — GYM APPAREL ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#Gym%20Apparel</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ==================== PRODUCT CATEGORY — TRACKSUITS ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#Tracksuits</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ==================== PRODUCT CATEGORY — CRICKET WEAR ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#Cricket%20Wear</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ==================== PRODUCT CATEGORY — FOOTBALL WEAR ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#Football%20Wear</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ==================== PRODUCT CATEGORY — MOTORBIKE WEAR ==================== -->
+  <url>
+    <loc>https://www.nusratorehmat.com/#Motorbike%20Wear</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 
 </urlset>
