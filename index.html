@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
-/* [CSS SAME AS BEFORE — NO CHANGES NEEDED] */
+/* =========================== CSS =========================== */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --ink:#0B1B36;--ink-2:#122A4A;--ink-3:#071326;
@@ -57,7 +57,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 .top-strip::before{content:'';position:absolute;inset:0;background-image:url('images/back.png');background-size:180px auto;background-repeat:repeat-x;background-position:center;opacity:0.30;pointer-events:none;z-index:0;}
 .top-strip .left-brand,.top-strip .right{position:relative;z-index:2;}
 .top-strip .left-brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.top-strip .left-brand img{height:48px;width:48px;object-fit:contain;display:block;flex-shrink:0}
+.top-strip .left-brand img{height:100px;width:100px;object-fit:contain;display:block;flex-shrink:0}
 .top-strip .left-brand .brand-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;letter-spacing:0;text-transform:none;color:var(--ink);line-height:1.1}
 .top-strip .left-brand .brand-name em{font-style:italic;color:var(--gold)}
 .top-strip .left-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-top:2px}
@@ -345,9 +345,31 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 .contact-info-block:hover{background:rgba(205,170,85,.1);border-color:rgba(205,170,85,.4);transform:translateX(6px);}
 .contact-info-block .ci-icon{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,rgba(205,170,85,.2),rgba(205,170,85,.08));border:1px solid rgba(205,170,85,.3);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;}
 .contact-info-block .ci-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,217,168,.65);margin-bottom:4px;}
-.contact-info-block .ci-value{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--paper);font-weight:700;}
-.contact-info-block .ci-value a{color:inherit;transition:.3s}
-.contact-info-block .ci-value a:hover{color:var(--gold-2)}
+
+/* ============================================================
+   ✅ FIXED: All contact values now use Playfair Display
+   - Same font as "Zahid Salman"
+   - lining-nums makes digits straight (not up-down)
+============================================================ */
+.contact-info-block .ci-value,
+.contact-info-block .ci-value a,
+.contact-info-block .ci-value span {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--paper) !important;
+  font-variant-numeric: lining-nums !important;
+  font-feature-settings: "lnum" 1 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+}
+.contact-info-block .ci-value a {
+  transition: .3s;
+}
+.contact-info-block .ci-value a:hover {
+  color: var(--gold-2) !important;
+}
+
 .contact-form-side{padding:80px 60px;background:var(--cream);display:flex;flex-direction:column;justify-content:center;position:relative;}
 .contact-form-side::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),var(--gold),var(--green));}
 .contact-form-side .form-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.15;}
@@ -477,7 +499,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .main{margin-left:0;padding-bottom:70px}
   .top-strip{padding:8px 12px;flex-direction:column;gap:6px;align-items:center;text-align:center;min-height:auto}
   .top-strip .left-brand{justify-content:center;gap:8px}
-  .top-strip .left-brand img{height:36px;width:36px}
+  .top-strip .left-brand img{height:64px;width:64px}
   .top-strip .left-brand .brand-name{font-size:1.15rem}
   .top-strip .left-brand .brand-sub{font-size:.5rem}
   .top-strip .right{justify-content:center;gap:10px}
@@ -591,7 +613,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .contact-side h2{font-size:1.4rem;margin-bottom:26px}
   .contact-info-block{padding:14px 16px;gap:14px}
   .contact-info-block .ci-icon{width:38px;height:38px;font-size:.85rem}
-  .contact-info-block .ci-value{font-size:.9rem}
+  .contact-info-block .ci-value{font-size:.95rem !important}
   .contact-form-side .form-title{font-size:1.3rem}
   .form-group{margin-bottom:18px}
   .form-group input,.form-group textarea,.form-group select{font-size:.85rem;padding:10px 0}
@@ -632,7 +654,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .hero-left p{font-size:.78rem}
   .hero-badge{width:130px;height:130px}
   .top-strip .left-brand .brand-name{font-size:1rem}
-  .top-strip .left-brand img{height:32px;width:32px}
+  .top-strip .left-brand img{height:56px;width:56px}
   .section-head h2{font-size:1.3rem}
   .cat-asym{grid-template-columns:1fr}
   .cat-card-asym.wide,.cat-card-asym.norm,.cat-card-asym.tall,.cat-card-asym.third,.cat-card-asym.half{grid-column:span 1}
@@ -1151,7 +1173,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 
 </main>
 
-<audio id="bgMusic" loop preload="auto">
+<audio id="bgMusic" loop preload="auto" playsinline>
   <source src="music1.mp3" type="audio/mpeg">
 </audio>
 
@@ -1169,10 +1191,9 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
    ============================================================ */
 const WEB3FORMS_KEY = "7741bc99-d503-40c5-993e-142cdab50f2e";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-const ADMIN_EMAIL = "stitch@nusratorehmat.com";
 
 /* ============================================================
-   SECTION 1: UTILITY FUNCTIONS
+   UTILITY FUNCTIONS
    ============================================================ */
 function updateClock(){
   const el = document.getElementById('liveClock');
@@ -1193,7 +1214,7 @@ function formatPrice(n){
 }
 
 /* ============================================================
-   SECTION 2: DEFAULT DATA
+   DEFAULT DATA
    ============================================================ */
 const DEFAULT_PRODUCTS = [
   {"id":1,"name":"Custom Team Jersey","cat":"Team Uniforms","price":1800,"img":"images/P01.png","desc":"Custom-designed team jersey with your logo, colors, and player names.","available":true},
@@ -1220,7 +1241,7 @@ const DEFAULT_PRODUCTS = [
 ]
 
 /* ============================================================
-   SECTION 3: CATEGORIES
+   CATEGORIES
    ============================================================ */
 const CATEGORIES = [
   {key:'Team Uniforms',  name:'Team Uniforms',   sub:'Custom jerseys with your logo', img:'images/uniforms.jfif',  tag:'Popular', size:'half'},
@@ -1233,14 +1254,14 @@ const CATEGORIES = [
 ];
 
 /* ============================================================
-   SECTION 4: STATE VARIABLES
+   STATE
    ============================================================ */
 let PRODUCTS = [];
 let GALLERY = [];
 let activeFilter = 'all';
 
 /* ============================================================
-   SECTION 5: DATA LOADING
+   DATA LOADING
    ============================================================ */
 async function loadProducts(){
   try{
@@ -1249,32 +1270,23 @@ async function loadProducts(){
       const data = await res.json();
       if(Array.isArray(data) && data.length > 0){
         PRODUCTS = data;
-        console.log('✅ Loaded from products.json:', PRODUCTS.length, 'products');
         return;
       }
     }
-  }catch(e){
-    console.warn('⚠️ products.json not found, using fallback:', e.message);
-  }
+  }catch(e){}
   try{
     const saved = JSON.parse(localStorage.getItem('nusratProducts') || 'null');
-    if(Array.isArray(saved) && saved.length > 0){
-      PRODUCTS = saved;
-      console.log('✅ Loaded from localStorage:', PRODUCTS.length);
-      return;
-    }
+    if(Array.isArray(saved) && saved.length > 0){ PRODUCTS = saved; return; }
   }catch(e){}
   PRODUCTS = [...DEFAULT_PRODUCTS];
-  console.log('✅ Using DEFAULT_PRODUCTS:', PRODUCTS.length);
 }
 
 function buildGalleryFromProducts(){
   GALLERY = PRODUCTS.map(p => ({ cat: p.cat, img: p.img, name: p.name }));
-  console.log('🎨 Gallery built:', GALLERY.length, 'items');
 }
 
 /* ============================================================
-   SECTION 6: NAVIGATION
+   NAVIGATION
    ============================================================ */
 function go(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -1302,7 +1314,7 @@ function filterAndGo(cat){
 }
 
 /* ============================================================
-   SECTION 7: RENDER HOME PAGE
+   RENDER HOME
    ============================================================ */
 function renderHome(){
   const ca = document.getElementById('catAsym');
@@ -1364,7 +1376,7 @@ function renderHome(){
 }
 
 /* ============================================================
-   SECTION 8: RENDER PRODUCTS PAGE
+   RENDER PRODUCTS PAGE
    ============================================================ */
 function productCardHTML(p){
   return `
@@ -1385,22 +1397,17 @@ function productCardHTML(p){
 function renderProducts(){
   const grid = document.getElementById('prodGrid');
   const fl = document.getElementById('filterList');
-  if(!grid || !fl){
-    console.error('❌ prodGrid or filterList not found');
-    return;
-  }
-  console.log('🎨 Rendering products. Total:', PRODUCTS.length);
+  if(!grid || !fl) return;
   const cats = ['all', ...new Set(PRODUCTS.map(p=>p.cat))];
   fl.innerHTML = cats.map(c=>`<label><input type="checkbox" ${activeFilter===c?'checked':''} onchange="setFilter('${c}')"><span>${c==='all'?'All Products':c}</span></label>`).join('');
   const list = activeFilter==='all' ? PRODUCTS : PRODUCTS.filter(p=>p.cat===activeFilter);
-  console.log('📦 Showing:', list.length, 'products');
   grid.innerHTML = list.map(p=>productCardHTML(p)).join('');
 }
 
 function setFilter(c){ activeFilter = c; renderProducts(); }
 
 /* ============================================================
-   SECTION 9: PRODUCT DETAIL PAGE
+   PRODUCT DETAIL
    ============================================================ */
 function openProduct(id){
   const p = PRODUCTS.find(x=>x.id===id);
@@ -1468,18 +1475,13 @@ function pdQtyChange(d){
 }
 
 /* ============================================================
-   SECTION 10: RENDER GALLERY PAGE
+   GALLERY
    ============================================================ */
 function renderGallery(filter){
   if(filter === undefined) filter = 'all';
   const grid = document.getElementById('galleryMasonry');
-  if(!grid){
-    console.error('❌ galleryMasonry not found');
-    return;
-  }
-  console.log('🖼️ Rendering gallery. Total:', GALLERY.length, 'Filter:', filter);
+  if(!grid) return;
   const list = filter==='all' ? GALLERY : GALLERY.filter(g=>g.cat===filter);
-  console.log('📷 Showing:', list.length, 'images');
   if(list.length === 0){
     grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)">No items in this category yet.</p>`;
     return;
@@ -1499,7 +1501,7 @@ function filterGallery(el, cat){
 }
 
 /* ============================================================
-   SECTION 11: CART
+   CART
    ============================================================ */
 function getCart(){
   try{ return JSON.parse(localStorage.getItem('nusratCart')||'[]'); }
@@ -1590,7 +1592,7 @@ function renderCart(){
 }
 
 /* ============================================================
-   SECTION 12: CHECKOUT
+   CHECKOUT
    ============================================================ */
 function renderCheckout(){
   const wrap = document.getElementById('checkoutItems');
@@ -1622,24 +1624,15 @@ async function placeOrder(e){
   e.preventDefault();
   const cart = getCart();
   if(cart.length===0){ showToast('Cart is empty', true); return; }
-
   const form = e.target;
   const btn = document.querySelector('.place-order-btn');
   const orig = btn.innerHTML;
   btn.innerHTML = 'Placing Order...';
   btn.disabled = true;
-
   const data = {
-    fullname: form.fullname.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    company: form.company.value,
-    address: form.address.value,
-    city: form.city.value,
-    postal: form.postal.value,
-    country: form.country.value,
-    notes: form.notes.value,
-    payment: form.payment.value
+    fullname: form.fullname.value, email: form.email.value, phone: form.phone.value,
+    company: form.company.value, address: form.address.value, city: form.city.value,
+    postal: form.postal.value, country: form.country.value, notes: form.notes.value, payment: form.payment.value
   };
   const items = cart.map(i=>`• ${i.name} (${i.size||'M'}) × ${i.qty} = ${formatPrice(i.price*i.qty)}`).join('\n');
   const sub = cart.reduce((s,i)=>s+i.price*i.qty,0);
@@ -1647,24 +1640,10 @@ async function placeOrder(e){
   const tax = sub * 0.1;
   const total = sub + shipping + tax;
   const orderId = 'NOR-' + Date.now().toString().slice(-6);
-
-  // Build order details message
   const orderDetails =
-    `Order ID: ${orderId}\n\n` +
-    `Customer: ${data.fullname}\n` +
-    `Email: ${data.email}\n` +
-    `Phone: ${data.phone}\n` +
-    `Company: ${data.company || 'N/A'}\n\n` +
-    `Address:\n${data.address}\n${data.city}, ${data.postal}\n${data.country}\n\n` +
-    `Payment: ${data.payment}\n` +
-    `Notes: ${data.notes || 'N/A'}\n\n` +
-    `Items:\n${items}\n\n` +
-    `Subtotal: ${formatPrice(sub)}\n` +
-    `Shipping: ${formatPrice(shipping)}\n` +
-    `Tax: ${formatPrice(tax)}\n` +
-    `Total: ${formatPrice(total)}`;
-
-  // Send via Web3Forms
+    `Order ID: ${orderId}\n\nCustomer: ${data.fullname}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company || 'N/A'}\n\n` +
+    `Address:\n${data.address}\n${data.city}, ${data.postal}\n${data.country}\n\nPayment: ${data.payment}\nNotes: ${data.notes || 'N/A'}\n\n` +
+    `Items:\n${items}\n\nSubtotal: ${formatPrice(sub)}\nShipping: ${formatPrice(shipping)}\nTax: ${formatPrice(tax)}\nTotal: ${formatPrice(total)}`;
   try {
     const formData = new FormData();
     formData.append('access_key', WEB3FORMS_KEY);
@@ -1674,34 +1653,24 @@ async function placeOrder(e){
     formData.append('email', data.email);
     formData.append('phone', data.phone);
     formData.append('message', orderDetails);
-
-    const res = await fetch(WEB3FORMS_ENDPOINT, {
-      method: 'POST',
-      body: formData
-    });
+    const res = await fetch(WEB3FORMS_ENDPOINT, { method: 'POST', body: formData });
     const result = await res.json();
-    console.log('Web3Forms order response:', result);
-
     if (result.success) {
       saveCart([]);
       document.getElementById('orderNumber').textContent = orderId;
       go('success');
     } else {
-      console.error('Order send failed:', result);
       showToast('Order failed. Please try WhatsApp.', true);
-      btn.innerHTML = orig;
-      btn.disabled = false;
+      btn.innerHTML = orig; btn.disabled = false;
     }
   } catch (err) {
-    console.error('Network error:', err);
     showToast('Network error. Please try WhatsApp.', true);
-    btn.innerHTML = orig;
-    btn.disabled = false;
+    btn.innerHTML = orig; btn.disabled = false;
   }
 }
 
 /* ============================================================
-   SECTION 13: CONTACT FORM — WEB3FORMS
+   CONTACT FORM
    ============================================================ */
 async function submitContactWeb3(e){
   e.preventDefault();
@@ -1710,39 +1679,28 @@ async function submitContactWeb3(e){
   const orig = btn.innerHTML;
   btn.innerHTML = 'Sending...';
   btn.disabled = true;
-
   try {
     const formData = new FormData(form);
     const userSubject = formData.get('subject') || 'New Contact Message';
     formData.set('subject', `Website Contact: ${userSubject}`);
-
-    const res = await fetch(WEB3FORMS_ENDPOINT, {
-      method: 'POST',
-      body: formData
-    });
-
+    const res = await fetch(WEB3FORMS_ENDPOINT, { method: 'POST', body: formData });
     const result = await res.json();
-    console.log('Web3Forms contact response:', result);
-
     if (result.success) {
       showToast('Message sent! We\'ll reply within 24 hours.');
       form.reset();
     } else {
-      console.error('Web3Forms error:', result);
       showToast('Failed to send. Please try WhatsApp.', true);
     }
   } catch (err) {
-    console.error('Network error:', err);
     showToast('Network error. Please try WhatsApp.', true);
   } finally {
-    btn.innerHTML = orig;
-    btn.disabled = false;
+    btn.innerHTML = orig; btn.disabled = false;
   }
   return false;
 }
 
 /* ============================================================
-   SECTION 14: TOAST
+   TOAST
    ============================================================ */
 let toastTimer;
 function showToast(msg, err){
@@ -1755,7 +1713,7 @@ function showToast(msg, err){
 }
 
 /* ============================================================
-   SECTION 15: SCROLL EFFECTS + MUSIC
+   SCROLL EFFECTS
    ============================================================ */
 window.addEventListener('scroll', ()=>{
   const h = document.documentElement.scrollHeight - window.innerHeight;
@@ -1771,6 +1729,9 @@ const io = new IntersectionObserver((entries)=>{
   });
 }, {threshold: 0.15});
 
+/* ============================================================
+   MUSIC
+   ============================================================ */
 let bgMusic, musicBtn, musicIcon;
 let musicStarted = false;
 
@@ -1794,11 +1755,17 @@ function updateMusicIcon(){
 function playMusic(){
   if(!bgMusic) return;
   bgMusic.volume = 0.15;
-  bgMusic.play().then(()=>{
-    musicStarted = true;
-    updateMusicIcon();
-    localStorage.setItem('nusratMusic', 'on');
-  }).catch(err=>{ console.log('Autoplay blocked:', err); });
+  const p = bgMusic.play();
+  if(p && p.then){
+    p.then(()=>{
+      musicStarted = true;
+      updateMusicIcon();
+      try{ localStorage.setItem('nusratMusic', 'on'); }catch(e){}
+      removeMusicListeners();
+    }).catch(err=>{
+      console.log('Autoplay blocked, waiting for user interaction:', err);
+    });
+  }
 }
 
 function toggleMusic(){
@@ -1809,25 +1776,26 @@ function toggleMusic(){
   } else {
     bgMusic.pause();
     updateMusicIcon();
-    localStorage.setItem('nusratMusic', 'off');
+    try{ localStorage.setItem('nusratMusic', 'off'); }catch(e){}
     showToast('🔇 Music OFF');
   }
 }
 
-function startMusicOnAnyClick(e){
-  if(localStorage.getItem('nusratMusic') === 'off'){ removeAllMusicListeners(); return; }
-  if(e && e.target && e.target.closest && e.target.closest('#musicBtn')) return;
-  if(musicStarted){ removeAllMusicListeners(); return; }
+function onUserInteraction(){
+  if(musicStarted) { removeMusicListeners(); return; }
+  let pref = 'on';
+  try { pref = localStorage.getItem('nusratMusic') || 'on'; } catch(e){}
+  if(pref === 'off'){ removeMusicListeners(); return; }
   playMusic();
 }
 
-function removeAllMusicListeners(){
-  document.removeEventListener('click', startMusicOnAnyClick);
-  document.removeEventListener('scroll', startMusicOnAnyClick);
-  document.removeEventListener('keydown', startMusicOnAnyClick);
-  document.removeEventListener('touchstart', startMusicOnAnyClick);
-  document.removeEventListener('mousemove', startMusicOnAnyClick);
-  document.removeEventListener('touchmove', startMusicOnAnyClick);
+function removeMusicListeners(){
+  document.removeEventListener('click', onUserInteraction);
+  document.removeEventListener('touchstart', onUserInteraction);
+  document.removeEventListener('keydown', onUserInteraction);
+  document.removeEventListener('scroll', onUserInteraction);
+  document.removeEventListener('mousemove', onUserInteraction);
+  document.removeEventListener('pointerdown', onUserInteraction);
 }
 
 function initMusic(){
@@ -1835,33 +1803,43 @@ function initMusic(){
   musicBtn = document.getElementById('musicBtn');
   musicIcon = document.getElementById('musicIcon');
   if(!bgMusic) return;
-  const pref = localStorage.getItem('nusratMusic');
-  if(pref === 'off'){ updateMusicIcon(); return; }
-  updateMusicIcon();
-  bgMusic.volume = 0.15;
-  bgMusic.play().then(()=>{
-    musicStarted = true;
+
+  let pref = 'on';
+  try { pref = localStorage.getItem('nusratMusic') || 'on'; } catch(e){}
+
+  if(pref === 'off'){
     updateMusicIcon();
-    localStorage.setItem('nusratMusic', 'on');
-  }).catch(()=>{
-    document.addEventListener('click', startMusicOnAnyClick);
-    document.addEventListener('scroll', startMusicOnAnyClick, {passive:true});
-    document.addEventListener('keydown', startMusicOnAnyClick);
-    document.addEventListener('touchstart', startMusicOnAnyClick, {passive:true});
-    document.addEventListener('touchmove', startMusicOnAnyClick, {passive:true});
-    document.addEventListener('mousemove', startMusicOnAnyClick, {passive:true});
-  });
+    return;
+  }
+
+  bgMusic.volume = 0.15;
+  const p = bgMusic.play();
+  if(p && p.then){
+    p.then(()=>{
+      musicStarted = true;
+      updateMusicIcon();
+    }).catch(()=>{
+      console.log('Autoplay blocked. Music will start on first interaction.');
+      document.addEventListener('click', onUserInteraction, { passive: true });
+      document.addEventListener('touchstart', onUserInteraction, { passive: true });
+      document.addEventListener('keydown', onUserInteraction, { passive: true });
+      document.addEventListener('scroll', onUserInteraction, { passive: true });
+      document.addEventListener('mousemove', onUserInteraction, { passive: true });
+      document.addEventListener('pointerdown', onUserInteraction, { passive: true });
+    });
+  }
+  updateMusicIcon();
 }
 
 /* ============================================================
-   SECTION 16: APP INIT
+   APP INIT
    ============================================================ */
 async function initializeApp(){
   await loadProducts();
   buildGalleryFromProducts();
   renderHome();
   renderProducts();
-  renderGallery(all);
+  renderGallery('all');
   updateCartBadge();
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   initMusic();
