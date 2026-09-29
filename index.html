@@ -445,8 +445,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 .footer-col a,.footer-col p{display:block;font-size:.8rem;color:rgba(245,241,232,.65);padding:5px 0;transition:.3s}
 .footer-col a:hover{color:var(--gold-2);padding-left:4px}
 .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.4);position:relative;z-index:2}
-.footer-credit{padding-top:18px;margin-top:18px;border-top:1px solid rgba(245,241,232,.08);display:flex;justify-content:center;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.4);position:relative;z-index:2;text-align:center}
-.footer-credit img{width:16px;height:16px;border-radius:50%;object-fit:cover;display:inline-block;vertical-align:middle;border:1px solid rgba(205,170,85,.4)}
 
 .wa-btn{position:fixed;bottom:20px;right:20px;z-index:900;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#25D366,#1EA855);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:.3s}
 .wa-btn:hover{transform:translateY(-4px) scale(1.06);box-shadow:0 15px 40px rgba(37,211,102,.6)}
@@ -649,8 +647,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .footer-col h4{font-size:.55rem;margin-bottom:12px}
   .footer-col a,.footer-col p{font-size:.75rem;padding:3px 0}
   .footer-bottom{font-size:.5rem;padding-top:18px;flex-direction:column;text-align:center;gap:6px}
-  .footer-credit{font-size:.5rem;gap:5px;padding-top:14px;margin-top:14px}
-  .footer-credit img{width:14px;height:14px}
   .wa-btn{width:44px;height:44px;font-size:1.2rem;bottom:76px;right:14px}
   .music-btn{width:44px;height:44px;font-size:.95rem;bottom:130px;right:14px}
   .back-top{width:36px;height:36px;font-size:.75rem;bottom:184px;right:14px}
@@ -1140,7 +1136,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   </section>
 </div>
 
-<!-- ✅ Updated footer — removed Email 2 + added Designed by credit -->
+<!-- ✅ Updated footer — removed Email 2 -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -1176,14 +1172,15 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
         <p>Chak Qazi, Sialkot, Pakistan</p>
       </div>
     </div>
-    <div class="footer-bottom">
+       <div class="footer-bottom">
       <span>© 2025 Nusrat O Rehmat Traders. All Rights Reserved.</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,241,232,.4);">
+        Designed by:
+        <img src="photo.jpeg" alt="Beijing" style="width:16px;height:16px;border-radius:50%;object-fit:cover;display:inline-block;vertical-align:middle;border:1px solid rgba(205,170,85,.4);">
+        Beijing
+      </span>
       <span>Made in Sialkot · Pakistan</span>
-    </div>
-    <div class="footer-credit">
-      Designed by:
-      <img src="photo.jpeg" alt="Beijing" onerror="this.style.display='none'">
-      Beijing
+    
     </div>
   </div>
 </footer>
