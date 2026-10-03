@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify Document — Nusrat O Rehmat Traders</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  min-height: 100vh;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background: #0B1B36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================
+   ANIMATED BACKGROUND
+============================================ */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(30,125,92,.35) 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(205,170,85,.28) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(23,102,77,.2) 0%, transparent 60%),
+    url('images/pattern.jfif'),
+    linear-gradient(135deg, #071326 0%, #0B1B36 50%, #0C3B2E 100%);
+  background-size: cover, cover, cover, 400px auto, cover;
+  background-position: center, center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat, no-repeat;
+  background-blend-mode: normal, normal, normal, overlay, normal;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* ✅ Pattern ko alag layer ki tarah opacity control karne ke liye */
+.bg-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('images/pattern.jfif');
+  background-size: 380px auto;
+  background-repeat: repeat;
+  opacity: 0.08;                    /* ← Halka pattern */
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Floating particles */
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: #CDAA55;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1);
+  }
+}
+
+/* Grid pattern */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(205,170,85,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(205,170,85,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
+  pointer-events: none;
+  -webkit-mask: radial-gradient(circle at center, black 40%, transparent 75%);
+  mask: radial-gradient(circle at center, black 40%, transparent 75%);
+}
+
+/* ============================================
+   MAIN CARD
+============================================ */
+.verify-card {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 28px;
+  padding: 50px 45px 40px;
+  max-width: 540px;
+  width: 100%;
+  text-align: center;
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.55),
+    0 0 0 1px rgba(205,170,85,.35),
+    0 0 80px rgba(205,170,85,.15);
+  animation: cardIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.verify-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #CDAA55 20%,
+    #F0D98F 50%,
+    #CDAA55 80%,
+    transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmerLine 3s linear infinite;
+}
+
+@keyframes shimmerLine {
+  to { background-position: 200% 0; }
+}
+
+@keyframes cardIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ============================================
+   VERIFY ICON — Animated Ring
+============================================ */
+.verify-icon-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verify-icon-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(30,125,92,.5);
+  animation: rotateRing 25s linear infinite;
+}
+
+.verify-icon-ring::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #CDAA55;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #CDAA55;
+}
+
+@keyframes rotateRing {
+  to { transform: rotate(360deg); }
+}
+
+.verify-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1E7D5C, #17664D);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  box-shadow:
+    0 15px 40px rgba(30,125,92,.5),
+    0 0 0 8px rgba(30,125,92,.1),
+    0 0 0 16px rgba(30,125,92,.05);
+  position: relative;
+  z-index: 2;
+  animation: iconPop 0.7s ease 0.3s both;
+}
+
+@keyframes iconPop {
+  0% { transform: scale(0) rotate(-180deg); }
+  60% { transform: scale(1.15) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.verify-icon.invalid {
+  background: linear-gradient(135deg, #DC3545, #B02A37);
+  box-shadow:
+    0 15px 40px rgba(220,53,69,.5),
+    0 0 0 8px rgba(220,53,69,.1),
+    0 0 0 16px rgba(220,53,69,.05);
+}
+
+.verify-card.invalid .verify-icon-ring {
+  border-color: rgba(220,53,69,.5);
+}
+
+.verify-card.invalid .verify-icon-ring::before {
+  background: #DC3545;
+  box-shadow: 0 0 12px #DC3545;
+}
+
+.verify-card.invalid::before {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #DC3545 20%,
+    #FF6B6B 50%,
+    #DC3545 80%,
+    transparent 100%);
+  background-size: 200% 100%;
+}
+
+/* ============================================
+   TITLE
+============================================ */
+.verify-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: #0B1B36;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.verify-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, #CDAA55, #B8943F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.verify-subtitle {
+  font-size: .82rem;
+  color: #6B7280;
+  line-height: 1.65;
+  margin-bottom: 26px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
+   INFO BOX
+============================================ */
+.info-box {
+  background: linear-gradient(135deg, #F9F7F2, #F5F0E5);
+  border-radius: 16px;
+  padding: 4px 20px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(205,170,85,.25);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-box::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #CDAA55, #B8943F);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0 13px 12px;
+  border-bottom: 1px dashed rgba(11,27,54,.1);
+  font-size: .82rem;
+  gap: 12px;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row .label {
+  color: #6B7280;
+  font-weight: 600;
+  font-size: .68rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.info-row .label i {
+  color: #CDAA55;
+  font-size: .75rem;
+}
+
+.info-row .value {
+  color: #0B1B36;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem;
+  text-align: right;
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.info-row .value.green {
+  color: #1E7D5C;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .82rem;
+}
+
+.info-row .value.green i {
+  color: #1E7D5C;
+}
+
+/* Copy Button */
+.copy-btn {
+  background: rgba(205,170,85,.15);
+  border: 1px solid rgba(205,170,85,.35);
+  color: #B8943F;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: .6rem;
+  transition: .25s;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  background: #CDAA55;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.copy-btn.copied {
+  background: #1E7D5C;
+  border-color: #1E7D5C;
+  color: #fff;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 60px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #CDAA55, #F0D98F 50%, #B8943F);
+  background-size: 200% 100%;
+  color: #0B1B36;
+  box-shadow: 0 12px 30px rgba(205,170,85,.4);
+  margin-bottom: 10px;
+}
+
+.btn-gold:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(205,170,85,.6);
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+  transition: left 0.6s;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #6B7280;
+  border: 1.5px solid rgba(11,27,54,.15);
+  font-size: .7rem;
+  padding: 13px 24px;
+  letter-spacing: 1.5px;
+}
+
+.btn-ghost:hover {
+  background: #F9F7F2;
+  color: #0B1B36;
+  border-color: #CDAA55;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   ACTION ROW (Share)
+============================================ */
+.action-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1.5px solid rgba(11,27,54,.12);
+  border-radius: 12px;
+  background: #fff;
+  color: #0B1B36;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: .25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.action-btn:hover {
+  background: #0B1B36;
+  color: #CDAA55;
+  border-color: #0B1B36;
+  transform: translateY(-2px);
+}
+
+.action-btn.whatsapp:hover {
+  background: #25D366;
+  color: #fff;
+  border-color: #25D366;
+}
+
+/* ============================================
+   BRAND
+============================================ */
+.brand-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 16px;
+  color: rgba(11,27,54,.2);
+}
+
+.brand-divider::before,
+.brand-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(205,170,85,.4), transparent);
+}
+
+.brand-divider i {
+  color: #CDAA55;
+  font-size: .7rem;
+}
+
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #0B1B36;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.brand-name em {
+  font-style: italic;
+  color: #CDAA55;
+}
+
+.brand-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .58rem;
+  letter-spacing: 4px;
+  color: #CDAA55;
+  text-transform: uppercase;
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+.brand-location {
+  font-size: .65rem;
+  color: #6B7280;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+.brand-location i {
+  color: #1E7D5C;
+  margin-right: 4px;
+}
+
+/* ============================================
+   CONFETTI
+============================================ */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  z-index: 100;
+  pointer-events: none;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   TOAST
+============================================ */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #0B1B36;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 50px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.4);
+  border: 1px solid rgba(205,170,85,.4);
+  z-index: 999;
+  opacity: 0;
+  transition: .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.toast i {
+  color: #CDAA55;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 560px) {
+  body { padding: 14px; }
+
+  .verify-card {
+    padding: 36px 24px 30px;
+    border-radius: 22px;
+  }
+
+  .verify-icon-wrap {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 22px;
+  }
+
+  .verify-icon {
+    width: 84px;
+    height: 84px;
+    font-size: 2.4rem;
+  }
+
+  .verify-title { font-size: 1.5rem; }
+
+  .verify-subtitle { font-size: .75rem; margin-bottom: 22px; }
+
+  .info-box { padding: 2px 14px; }
+
+  .info-row {
+    padding: 11px 0 11px 10px;
+    font-size: .75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .info-row .value {
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+    font-size: .7rem;
+  }
+
+  .btn { padding: 14px 24px; font-size: .68rem; }
+
+  .action-row { flex-direction: column; }
+
+  .brand-name { font-size: 1.1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg-gradient"></div>
+<div class="bg-grid"></div>
+<div class="particles" id="particles"></div>
+
+<!-- Main Card -->
+<div class="verify-card" id="verifyCard">
+
+  <!-- Animated Icon -->
+  <div class="verify-icon-wrap">
+    <div class="verify-icon-ring"></div>
+    <div class="verify-icon" id="icon">
+      <i class="fas fa-check"></i>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <h1 class="verify-title" id="title">
+    Document <em>Verified</em>
+  </h1>
+  <p class="verify-subtitle" id="subtitle">
+    This document is authentic and officially issued by<br>
+    <strong>Nusrat O Rehmat Traders</strong>.
+  </p>
+
+  <!-- Info Box -->
+  <div class="info-box">
+    <div class="info-row">
+      <span class="label">
+        <i class="fas fa-fingerprint"></i> Serial No
+      </span>
+      <span class="value" id="serial">
+        —
+        <button class="copy-btn" id="copyBtn" onclick="copySerial()" title="Copy">
+          <i class="fas fa-copy"></i>
+        </button>
+      </span>
+    </div>
+    <div class="info-row">
+      <span class="label">
+        <i class="fas fa-building"></i> Issued By
+      </span>
+      <span class="value" style="font-family:'Space Grotesk';font-size:.78rem;">
+        Nusrat O Rehmat Traders
+      </span>
+    </div>
+    <div class="info-row">
+      <span class="label">
+        <i class="fas fa-map-marker-alt"></i> Location
+      </span>
+      <span class="value" style="font-family:'Space Grotesk';font-size:.78rem;">
+        Chak Qazi, Sialkot
+      </span>
+    </div>
+    <div class="info-row">
+      <span class="label">
+        <i class="fas fa-shield-halved"></i> Status
+      </span>
+      <span class="value green">
+        <i class="fas fa-circle-check"></i> Verified & Active
+      </span>
+    </div>
+  </div>
+
+  <!-- View PDF Button -->
+  <a class="btn btn-gold" id="viewBtn" href="#">
+    <i class="fas fa-file-pdf"></i>
+    View Original Document
+  </a>
+
+  <!-- Share Buttons -->
+  <div class="action-row">
+    <button class="action-btn whatsapp" onclick="shareWhatsApp()">
+      <i class="fab fa-whatsapp"></i> Share
+    </button>
+    <button class="action-btn" onclick="window.print()">
+      <i class="fas fa-print"></i> Print
+    </button>
+    <button class="action-btn" onclick="window.close()">
+      <i class="fas fa-times"></i> Close
+    </button>
+  </div>
+
+  <!-- Brand -->
+  <div class="brand-divider">
+    <i class="fas fa-award"></i>
+  </div>
+
+  <div class="brand-name">Nusrat O <em>Rehmat</em></div>
+  <div class="brand-sub">Traders</div>
+  <div class="brand-location">
+    <i class="fas fa-map-pin"></i> Chak Qazi, Sialkot · Pakistan
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span id="toastMsg">Copied!</span>
+</div>
+
+<script>
+/* ============================================
+   PARSE URL
+============================================ */
+const params = new URLSearchParams(window.location.search);
+const serial = params.get('serial');
+const file = params.get('file');
+
+/* ============================================
+   FLOATING PARTICLES
+============================================ */
+function createParticles() {
+  const container = document.getElementById('particles');
+  const colors = ['#CDAA55', '#F0D98F', '#1E7D5C', '#17664D'];
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.width = (Math.random() * 4 + 2) + 'px';
+    p.style.height = p.style.width;
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = (Math.random() * 15 + 12) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
+    container.appendChild(p);
+  }
+}
+createParticles();
+
+/* ============================================
+   VERIFY LOGIC
+============================================ */
+if (serial) {
+  // ✅ Valid
+  document.getElementById('serial').innerHTML =
+    `${serial}
+    <button class="copy-btn" id="copyBtn" onclick="copySerial()" title="Copy">
+      <i class="fas fa-copy"></i>
+    </button>`;
+
+  if (file) {
+    document.getElementById('viewBtn').href = `letters/${file}`;
+    document.getElementById('viewBtn').setAttribute('target', '_blank');
+  } else {
+    document.getElementById('viewBtn').style.display = 'none';
+  }
+
+  // Confetti after 500ms
+  setTimeout(createConfetti, 500);
+
+} else {
+  // ❌ Invalid
+  document.getElementById('verifyCard').classList.add('invalid');
+  document.getElementById('icon').classList.add('invalid');
+  document.getElementById('icon').innerHTML = '<i class="fas fa-times"></i>';
+  document.getElementById('title').innerHTML = 'Invalid <em>Document</em>';
+  document.getElementById('subtitle').innerHTML =
+    'No serial number found.<br>This document cannot be verified.';
+  document.getElementById('serial').textContent = '—';
+  document.getElementById('viewBtn').style.display = 'none';
+}
+
+/* ============================================
+   COPY SERIAL
+============================================ */
+function copySerial() {
+  if (!serial) return;
+  navigator.clipboard.writeText(serial).then(() => {
+    const btn = document.getElementById('copyBtn');
+    if (btn) {
+      btn.classList.add('copied');
+      btn.innerHTML = '<i class="fas fa-check"></i>';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<i class="fas fa-copy"></i>';
+      }, 2000);
+    }
+    showToast('Serial number copied!');
+  });
+}
+
+/* ============================================
+   SHARE WHATSAPP
+============================================ */
+function shareWhatsApp() {
+  const msg = encodeURIComponent(
+    `✅ Document Verified\n\nSerial: ${serial}\nIssued by: Nusrat O Rehmat Traders\n\nVerify here: ${window.location.href}`
+  );
+  window.open(`https://wa.me/?text=${msg}`, '_blank');
+}
+
+/* ============================================
+   TOAST
+============================================ */
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+/* ============================================
+   CONFETTI
+============================================ */
+function createConfetti() {
+  const colors = ['#CDAA55', '#F0D98F', '#1E7D5C', '#17664D', '#B8943F', '#fff'];
+  const shapes = ['circle', 'square', 'rect'];
+
+  for (let i = 0; i < 60; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const size = Math.random() * 8 + 6;
+    const shape = shapes[Math.floor(Math.random() * shapes.length)];
+
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = color;
+    c.style.width = (shape === 'rect' ? size * 1.8 : size) + 'px';
+    c.style.height = size + 'px';
+    c.style.borderRadius = shape === 'circle' ? '50%' : '2px';
+    c.style.animationDuration = (Math.random() * 2.5 + 2.5) + 's';
+    c.style.animationDelay = (Math.random() * 0.6) + 's';
+    c.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 5000);
+  }
+}
+</script>
+
+</body>
+</html>
