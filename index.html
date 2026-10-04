@@ -53,11 +53,12 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 .mobile-nav .mn-item.active i{color:var(--gold-2)}
 .mobile-nav .mn-item .mn-badge{position:absolute;top:4px;right:calc(50% - 18px);background:var(--gold);color:var(--ink);font-size:.5rem;font-weight:700;min-width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0 3px;font-family:'JetBrains Mono',monospace;}
 
-.top-strip{position:relative;overflow:visible;background:#FAF8F2;padding:12px 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(15,31,61,.06);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);flex-wrap:wrap;gap:10px;min-height:50px;}
+/* ✅ Top strip — shorter height (50px) */
+.top-strip{position:relative;overflow:visible;background:#FAF8F2;padding:4px 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(15,31,61,.06);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);flex-wrap:wrap;gap:10px;min-height:50px;}
 .top-strip::before{content:'';position:absolute;inset:0;background-image:url('images/back.png');background-size:180px auto;background-repeat:repeat-x;background-position:center;opacity:0.30;pointer-events:none;z-index:0;}
 .top-strip .left-brand,.top-strip .right{position:relative;z-index:2;}
 .top-strip .left-brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.top-strip .left-brand img{height:100px;width:100px;object-fit:contain;display:block;flex-shrink:0}
+.top-strip .left-brand img{height:60px;width:60px;object-fit:contain;display:block;flex-shrink:0}
 .top-strip .left-brand .brand-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;letter-spacing:0;text-transform:none;color:var(--ink);line-height:1.1}
 .top-strip .left-brand .brand-name em{font-style:italic;color:var(--gold)}
 .top-strip .left-brand .brand-sub{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-top:2px}
@@ -349,7 +350,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
 .contact-info-block .ci-value a{color:inherit;transition:.3s}
 .contact-info-block .ci-value a:hover{color:var(--gold-2)}
 
-/* ✅ FIXED: All contact values now use Playfair Display with !important */
 .contact-info-block .ci-value,
 .contact-info-block .ci-value a,
 .contact-info-block .ci-value span {
@@ -493,9 +493,9 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .side-panel{display:none !important}
   .mobile-nav{display:block}
   .main{margin-left:0;padding-bottom:70px}
-  .top-strip{padding:8px 12px;flex-direction:column;gap:6px;align-items:center;text-align:center;min-height:auto}
+  .top-strip{padding:6px 12px;flex-direction:column;gap:6px;align-items:center;text-align:center;min-height:auto}
   .top-strip .left-brand{justify-content:center;gap:8px}
-  .top-strip .left-brand img{height:64px;width:64px}
+  .top-strip .left-brand img{height:50px;width:50px}
   .top-strip .left-brand .brand-name{font-size:1.15rem}
   .top-strip .left-brand .brand-sub{font-size:.5rem}
   .top-strip .right{justify-content:center;gap:10px}
@@ -722,10 +722,11 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
       <div class="brand-sub">Traders · Sportswear</div>
     </div>
   </div>
-  <!-- ✅ Top strip — ALL original numbers + Tel & Fax added -->
+  <!-- ✅ Top strip — Time with label + Email -->
   <div class="right">
-    <span class="live-clock" id="liveClock">Time: --:--:--</span>
-    </div>
+    <span class="live-clock"><i class="fas fa-clock" style="margin-right:5px;"></i>Time: <span id="liveClock">--:--:--</span></span>
+    <a href="mailto:stitch@nusratorehmat.com"><i class="fas fa-envelope" style="margin-right:5px;"></i>stitch@nusratorehmat.com</a>
+  </div>
 </div>
 
 <!-- HOME -->
@@ -1020,7 +1021,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
       <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="ci-label">Address</div><div class="ci-value">Chak Qazi, Sialkot, Pakistan</div></div></div>
       <div class="contact-info-block"><div class="ci-icon"><i class="fab fa-whatsapp"></i></div><div><div class="ci-label">Primary Mobile</div><div class="ci-value"><a href="https://wa.me/923333939888">+92-333-3939-888</a></div></div></div>
       <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-mobile-alt"></i></div><div><div class="ci-label">Secondary Mobile</div><div class="ci-value"><a href="https://wa.me/923349855976">+92-334-9855-976</a></div></div></div>
-      <!-- ✅ New Tel & Fax blocks added -->
       <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-phone-volume"></i></div><div><div class="ci-label">Tel</div><div class="ci-value"><a href="tel:+92523512117">+92-523-512117</a></div></div></div>
       <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-fax"></i></div><div><div class="ci-label">Fax</div><div class="ci-value"><a href="tel:+92523512117">+92-523-512117</a></div></div></div>
       <div class="contact-info-block"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:stitch@nusratorehmat.com">stitch@nusratorehmat.com</a></div></div></div>
