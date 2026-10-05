@@ -35,28 +35,12 @@ body {
     radial-gradient(circle at 20% 20%, rgba(30,125,92,.35) 0%, transparent 45%),
     radial-gradient(circle at 80% 80%, rgba(205,170,85,.28) 0%, transparent 45%),
     radial-gradient(circle at 50% 50%, rgba(23,102,77,.2) 0%, transparent 60%),
-    url('images/pattern.jfif'),
     linear-gradient(135deg, #071326 0%, #0B1B36 50%, #0C3B2E 100%);
-  background-size: cover, cover, cover, 400px auto, cover;
-  background-position: center, center, center, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat, no-repeat;
-  background-blend-mode: normal, normal, normal, overlay, normal;
+  background-size: cover, cover, cover, cover;
+  background-position: center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   opacity: 1;
   z-index: 0;
-}
-
-/* ✅ Pattern ko alag layer ki tarah opacity control karne ke liye */
-.bg-gradient::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('images/pattern.jfif');
-  background-size: 380px auto;
-  background-repeat: repeat;
-  opacity: 0.08;                    /* ← Halka pattern */
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  z-index: 1;
 }
 
 /* Floating particles */
@@ -459,54 +443,13 @@ body {
 }
 
 /* ============================================
-   ACTION ROW (Share)
-============================================ */
-.action-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.action-btn {
-  flex: 1;
-  padding: 12px;
-  border: 1.5px solid rgba(11,27,54,.12);
-  border-radius: 12px;
-  background: #fff;
-  color: #0B1B36;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: .25s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.action-btn:hover {
-  background: #0B1B36;
-  color: #CDAA55;
-  border-color: #0B1B36;
-  transform: translateY(-2px);
-}
-
-.action-btn.whatsapp:hover {
-  background: #25D366;
-  color: #fff;
-  border-color: #25D366;
-}
-
-/* ============================================
    BRAND
 ============================================ */
 .brand-divider {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 28px 0 16px;
+  margin: 24px 0 14px;
   color: rgba(11,27,54,.2);
 }
 
@@ -663,8 +606,6 @@ body {
 
   .btn { padding: 14px 24px; font-size: .68rem; }
 
-  .action-row { flex-direction: column; }
-
   .brand-name { font-size: 1.1rem; }
 }
 </style>
@@ -709,6 +650,15 @@ body {
         </button>
       </span>
     </div>
+    <!-- ✅ Document Type Row (Sirf yahan aayega) -->
+    <div class="info-row">
+      <span class="label">
+        <i class="fas fa-file-signature"></i> Document Type
+      </span>
+      <span class="value" style="font-family:'Space Grotesk';font-size:.78rem;" id="docTypeRow">
+        —
+      </span>
+    </div>
     <div class="info-row">
       <span class="label">
         <i class="fas fa-building"></i> Issued By
@@ -741,9 +691,6 @@ body {
     View Original Document
   </a>
 
-  <!-- Share Buttons -->
-
-
   <!-- Brand -->
   <div class="brand-divider">
     <i class="fas fa-award"></i>
@@ -770,6 +717,36 @@ body {
 const params = new URLSearchParams(window.location.search);
 const serial = params.get('serial');
 const file = params.get('file');
+const type = params.get('type');
+
+/* ============================================
+   DOCUMENT TYPE MAPPING
+============================================ */
+function getDocTypeLabel(typeParam) {
+  if (!typeParam) return 'Verified Document';
+  const map = {
+    'company-intro': 'Company Introduction',
+    'employee-certificate': 'Employee Certificate',
+    'experience-letter': 'Experience Letter',
+    'salary-certificate': 'Salary Certificate',
+    'employment-letter': 'Employment Letter',
+    'recommendation-letter': 'Recommendation Letter',
+    'noc': 'No Objection Certificate (NOC)',
+    'offer-letter': 'Offer Letter',
+    'appointment-letter': 'Appointment Letter',
+    'termination-letter': 'Termination Letter',
+    'training-certificate': 'Training Certificate',
+    'achievement-certificate': 'Achievement Certificate',
+    'invoice': 'Invoice',
+    'quotation': 'Quotation',
+    'agreement': 'Agreement',
+    'contract': 'Contract',
+    'other': 'Verified Document'
+  };
+  const key = String(typeParam).toLowerCase().trim();
+  if (map[key]) return map[key];
+  return key.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
 
 /* ============================================
    FLOATING PARTICLES
@@ -795,12 +772,15 @@ createParticles();
    VERIFY LOGIC
 ============================================ */
 if (serial) {
-  // ✅ Valid
+  // Valid
   document.getElementById('serial').innerHTML =
     `${serial}
     <button class="copy-btn" id="copyBtn" onclick="copySerial()" title="Copy">
       <i class="fas fa-copy"></i>
     </button>`;
+
+  // Set document type in info row
+  document.getElementById('docTypeRow').textContent = getDocTypeLabel(type);
 
   if (file) {
     document.getElementById('viewBtn').href = `letters/${file}`;
@@ -809,11 +789,10 @@ if (serial) {
     document.getElementById('viewBtn').style.display = 'none';
   }
 
-  // Confetti after 500ms
   setTimeout(createConfetti, 500);
 
 } else {
-  // ❌ Invalid
+  // Invalid
   document.getElementById('verifyCard').classList.add('invalid');
   document.getElementById('icon').classList.add('invalid');
   document.getElementById('icon').innerHTML = '<i class="fas fa-times"></i>';
@@ -841,16 +820,6 @@ function copySerial() {
     }
     showToast('Serial number copied!');
   });
-}
-
-/* ============================================
-   SHARE WHATSAPP
-============================================ */
-function shareWhatsApp() {
-  const msg = encodeURIComponent(
-    `✅ Document Verified\n\nSerial: ${serial}\nIssued by: Nusrat O Rehmat Traders\n\nVerify here: ${window.location.href}`
-  );
-  window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 
 /* ============================================
