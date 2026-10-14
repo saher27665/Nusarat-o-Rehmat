@@ -253,7 +253,8 @@ async function sendEmailNotification() {
     const payload = {
       access_key: WEB3FORMS_KEY,
       subject: `🔔 QR Scanned — ${serial}`,
-      from_name: "Nusrat O Rehmat QR Tracker",
+      from_name: "Nusrat O Rehmat QR Traders",
+      to: "zahidsalman88@hotmail.com", 
       "Serial Number": serial,
       "Document Type": getDocTypeLabel(type),
       "File": file || "N/A",
